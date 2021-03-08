@@ -1,25 +1,34 @@
 #  Programming Test for the MTG researcher position
 
-This repository contains the PyTorch (1.2+) implementation of our branch of [Open-Unmix](https://github.com/sigsep/open-unmix-pytorch): a study on different loss functions for Music Source Separation.  For mor details on the architecture, visit the [main respository](https://github.com/sigsep/open-unmix-pytorch).
+This repository contains the PyTorch (1.8+) implementation of the programming assignment for the researcher technical interview at the MTG. Contains the followings tasks:
 
-__Related Projects:__ [open-unmix-pytorch](https://github.com/sigsep/open-unmix-pytorch) | [musdb](https://github.com/sigsep/sigsep-mus-db) | [museval](https://github.com/sigsep/sigsep-mus-eval) | [norbert](https://github.com/sigsep/norbert)
-### Visualizing the experiments
+1. Download the GTZAN dataset of music audio with genre annotations. 
+2. Download Essentia’s MSD-MusiCNN TensorFlow model and extract deep embedding features for each track in the dataset.
+3. Subtask 1. Evaluate music similarity based on these features (embeddings). Each song in the dataset has a single ground-truth genre label. Use these genres as a proxy for evaluating similarity, that is, consider two songs are similar when they have the same genre label. Compute average precision@10, MAP@10, and MAP@50 across the entire dataset. Report these results.
+4. Subtask 2. Train a new transfer learning classifier using this dataset. Use the extracted audio features (embeddings) as an input to train a shallow target classifier. Report accuracy of the resulting model.
 
+__Related Projects:__ [essentia-tensorflow](https://https://essentia.upf.edu/) |
+
+### Visualizing the experiments from github.com
+Simply open ```PROGRAMMING TEST.ipynb```.
 ### Installation
 
-For installation we recommend to use the [Anaconda](https://anaconda.org/) python distribution. To create a conda environment for _open-unmix_, simply run:
+For installation we recommend to create a virtual environment as follows:
 ```
- conda install -c pytorch torchaudio 
+python -m venv <venv_name>
 ```
+Then activate it:
 ```
-pip install museval
+source <venv_name>/bin/activate
 ```
-
-`conda env create -f environment-X.yml` where `X` is either [`cpu-linux`, `gpu-linux-cuda10`, `cpu-osx`], depending on your system. For now, we haven't tested windows support.
+And install dependencies:
+```
+pip install -r requirements.txt
+```
 
 ### Replicating the experiments
-Once installed, update the dataset and outpupt paths on `run_experiments.sh` and run it:
-```bash
-sh run_experiments.sh
+Run:
 ```
-
+jupyter notebook
+```
+Open the ```PROGRAMMING TEST.ipynb``` file and run it. For this GPU-essentia-tensorflow version, we recommend installing or downgrading to CUDA10.0.
