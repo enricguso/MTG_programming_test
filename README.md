@@ -25,10 +25,13 @@ And install dependencies:
 ```
 pip install -r requirements.txt
 ```
-
+Finally add the kernel to the jupyter lab:
+```
+python -m ipykernel install --user --name=<venv_name>
+```
 ### Replicating the experiments
 Run:
 ```
 jupyter notebook
 ```
-Open the ```PROGRAMMING TEST.ipynb``` file and run it. For this GPU-essentia-tensorflow version, we recommend installing or downgrading to CUDA10.0.
+Open the ```PROGRAMMING TEST.ipynb``` file,  click "Kernel" tab and "Change Kernel". Select "<venv_name>" as kernel. For this GPU-essentia-tensorflow version, we recommend installing or downgrading to CUDA10.0.
